@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dynamic List Example</title>
+</head>
+<body>
+
+  <h2>My Shopping List</h2>
+
+  <ul id="myList">
+    <li>Apples</li>
+    <li>Bananas</li>
+    <li>Oranges</li>
+  </ul>
+
+  <input type="text" id="newItem" placeholder="Enter a new item">
+  <button onclick="addItem()">Enter</button>
+
+  <script>
+    function addItem() {
+      const inputField = document.getElementById("newItem");
+      const newItemText = inputField.value.trim();
+
+      if (newItemText === "") {
+        alert("Please enter an item.");
+        return;
+      }
+
+      // Create a new list item safely
+      const li = document.createElement("li");
+      li.textContent = newItemText;
+
+      // Append to existing list
+      document.getElementById("myList").appendChild(li);
+
+      // Clear input field
+      inputField.value = "";
+    }
+  </script>
+
+</body>
+</html>
