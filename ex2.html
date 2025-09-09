@@ -22,11 +22,21 @@
     <div id="div1"></div>
 
     <button onclick="changeShape()">Make a change!</button>
+   <script>
+       let isSquare = true; // track state
 
-    <script>
-        var square=true;
-       // add code here
-        
+       function changeShape() {
+            const divElem = document.getElementById("div1");
+            
+            if (isSquare) {
+                divElem.style.borderRadius = "50%"; // circle
+            } else {
+                divElem.style.borderRadius = "0%"; // square
+            }
+
+            // toggle state
+            isSquare = !isSquare;
+       }
     </script>
 
 </body>
