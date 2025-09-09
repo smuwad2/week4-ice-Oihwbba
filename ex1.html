@@ -17,37 +17,42 @@
 
         <script>
         
-   function validateForm(formName) {
-    var form = document.forms[formName];
-    var age = form["age"].value;
-    var email = form["email"].value;
-    var password = form["password"].value;
 
-    var errorMessages = "";
+ function validateForm(formName) {
+                const form = document.forms[formName];
+                const id = form["id"].value;
+                const age = form["age"].value;
+                const email = form["email"].value;
+                const password = form["password"].value;
 
-    // Validate age
-    if (age < 10 || age > 40 || age === "") {
-      errorMessages += "Invalid age: Age must be between 10 and 40.\n";
-    }
+                var errorMessages = "";
 
-    // Validate email
-    if (!email.includes("@")) {
-      errorMessages += "Invalid email: Email must contain the character @.\n";
-    }
+                if (id.length>10) {
+                errorMessages += "Invalid id: 10 chatacter or less\n";
+                }
+                // Validate age
+                if (age < 10 || age > 40 || age === "") {
+                errorMessages += "Invalid age: Age must be between 10 and 40.\n";
+                }
 
-    // Validate password
-    if (password.trim() === "") {
-      errorMessages += "Empty password: Password must be non-empty.\n";
-    }
+                // Validate email
+                if (!email.includes("@")) {
+                errorMessages += "Invalid email: Email must contain the character @.\n";
+                }
 
-    // Show errors or allow submit
-    if (errorMessages !== "") {
-      alert(errorMessages);
-      return false; // prevent form submission
-    }
+                // Validate password
+                if (password.trim() === "") {
+                errorMessages += "Empty password: Password must be non-empty.\n";
+                }
 
-    return true; // form is valid
-  }
+                // Show errors or allow submit
+                if (errorMessages !== "") {
+                alert(errorMessages);
+                return false; // prevent form submission
+                }
+
+                return true; // form is valid
+            }
      
          </script>
 </body>
