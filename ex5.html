@@ -1,49 +1,37 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Event Handling</title>
-   
-    <style>
-
-        #circle {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background-color: goldenrod;
-            text-align: center;
-            padding-top: 60px;
-        }
-
-        /* Add CSS code here */ 
-        #square {
-            width: 150px;
-            height: 150px;
-            background-color: goldenrod;
-            text-align: center;
-            padding-top: 60px;
-            
-
-        }
-
-    </style>
-</head>
 <body>
-        
-        <div id="circle" onmouseover="mOver(this)" onmouseout="mOut(this)" >
-            Mouse Over Me
-        </div>
-        
-        <script>
-            function mOver(elem) {
-                elem.id="square"
 
-            }
-            function mOut(elem) {
-                 elem.id="circle"
+    <h1>Shopping List</h1>
 
-            }
-           // add code here
-        </script>
-                
-</body>
+    <select id="select_item">
+        <option value="NoteBook">Notebook</option>
+        <option value="Jello">Jello</option>
+        <option value="Spinach">Spinach</option>
+        <option value="Rice">Rice</option>
+        <option value="Birthday Cake">Birthday Cake</option>
+        <option value="Candles">Candles</option>
+    </select>
+
+    <p>Shopping Cart:</p>
+    <ul id="shopList"></ul>
+
+    <script>
+        var selected_item = document.getElementById("select_item");
+        selected_item.addEventListener("change", addNewItem);
+
+        function addNewItem() {
+            console.log(selected_item.value);
+        
+            var ul = document.getElementById("shopList");
+            var li = document.createElement("li");
+            var textNode = document.createTextNode(selected_item.value);
+            li.appendChild(textNode);
+            ul.appendChild(li);  
+         }
+    
+    </script>
+
+
+    </body>
 </html>

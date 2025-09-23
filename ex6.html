@@ -17,28 +17,21 @@
     <ul id="shopList"></ul>
 
     <script>
-        const Selected_Item = document.getElementById("select_item");
-        const shopList =  document.getElementById("shopList");
+        var selected_item = document.getElementById("select_item");
+        selected_item.addEventListener("change", addNewItem);
 
-        select_item.addEventListener("change",function() {
-            const Selected_Value= select_item.value;
-            const li = document.createElement("li")
-            li.textContent = Selected_Value
-            shopList.appendChild(li);
-
-           
-
-
-         
+        function addNewItem() {
+            console.log(selected_item.value);
         
-        });
-        
-        // add code here
-        
-        
+            var ul = document.getElementById("shopList");
+            var li = document.createElement("li");
+            var textNode = document.createTextNode(selected_item.value);
+            li.appendChild(textNode);
+            ul.appendChild(li);  
+         }
+    
     </script>
 
-    
 
     </body>
 </html>

@@ -2,18 +2,19 @@
 <html>
 <head>
     <style>
-
         #div1 {
             width: 200px;
             height: 200px;
             background-color: goldenrod;
         }
 
-        /* add CSS code here */
-        
+        #div2 {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: goldenrod;
+        }
     </style>
-
-    
 </head>
 <body>
     
@@ -22,21 +23,27 @@
     <div id="div1"></div>
 
     <button onclick="changeShape()">Make a change!</button>
-   <script>
-       let isSquare = true; // track state
 
-       function changeShape() {
-            const divElem = document.getElementById("div1");
-            
-            if (isSquare) {
-                divElem.style.borderRadius = "50%"; // circle
+    <script>
+        // variable defined outside functions is a global variable
+        // which is accessible by functions
+        var square = true;
+ 
+        function changeShape() {
+        
+            if (square) {
+                var div = document.getElementById("div1");
+                div.id = "div2";
+                square = false;
             } else {
-                divElem.style.borderRadius = "0%"; // square
+                var div = document.getElementById("div2");
+                div.id = "div1";
+                square = true;
             }
+            
+        }
+      
 
-            // toggle state
-            isSquare = !isSquare;
-       }
     </script>
 
 </body>

@@ -1,59 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 </head>
 <body>
     
     <h2>Form Validation</h2>
 
-    <form name="inputForm" action="#" onsubmit="return validateForm('inputForm')" autocomplete="on" >
+    <form name="form" action="#" onsubmit="validateForm('form')" autocomplete="on" >
             ID: <input type="text" name="id" ><br>
             Age: <input type="number" name="age" ><br>
             Email: <input type="text" name="email" ><br>
             Password: <input type="password" name="password" ><br>
             <input type="submit" value="Submit"><br>
-        </form>
+    </form>
 
-        <script>
-        
+    <script>
+        function validateForm(fname) {
+            var form = document.forms[fname];
 
- function validateForm(formName) {
-                const form = document.forms[formName];
-                const id = form["id"].value;
-                const age = form["age"].value;
-                const email = form["email"].value;
-                const password = form["password"].value;
-
-                var errorMessages = "";
-
-                if (id.length>10) {
-                errorMessages += "Invalid id: 10 chatacter or less\n";
-                }
-                // Validate age
-                if (age < 10 || age > 40 || age === "") {
-                errorMessages += "Invalid age: Age must be between 10 and 40.\n";
-                }
-
-                // Validate email
-                if (!email.includes("@")) {
-                errorMessages += "Invalid email: Email must contain the character @.\n";
-                }
-
-                // Validate password
-                if (password.trim() === "") {
-                errorMessages += "Empty password: Password must be non-empty.\n";
-                }
-
-                // Show errors or allow submit
-                if (errorMessages !== "") {
-                alert(errorMessages);
-                return false; // prevent form submission
-                }
-
-                return true; // form is valid
+            var age = form["age"].value;
+            var email = form["email"].value;
+            var pwd = form["password"].value;
+           
+            var msg = "";
+            
+            if (age < 10 || age > 40) {
+                msg += "Age must be between 10 and 40.\n";
             }
-     
-         </script>
+
+            if (!email.includes("@") ) {
+                msg += "Email must contain @.\n";
+            }
+
+            if (pwd == "") {
+                msg += "Password must be non-empty.\n";
+            }
+
+            if (msg != "") {
+                alert(msg);
+                
+            } else {
+                return true;
+            }
+            return false;
+            
+        }
+    </script>
 </body>
 </html>
