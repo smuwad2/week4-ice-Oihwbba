@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <body>
 
     <h1>Shopping List</h1>
-    <!-- onchange="addNewItem()" -->
-    <select id="select_item" onchange="addNewItem()">
+
+    <select id="select_item">
         <option value="NoteBook">Notebook</option>
         <option value="Jello">Jello</option>
         <option value="Spinach">Spinach</option>
@@ -17,26 +18,17 @@
     <ul id="shopList"></ul>
 
     <script>
-       
-        // select_item.addEventListener("change",function() {
-        //    addNewItem();
-        // } )
-        function addNewItem() {
-            var select_item = document.getElementById("select_item");
-            var ul = document.getElementById('shopList');
-            var li = document.createElement('li');
-            var textNode = document.createTextNode(select_item.value);
-            li.appendChild(textNode);
-            ul.appendChild(li);
+        const selectItem = document.getElementById('select_item');
+        const shopList = document.getElementById('shopList');
 
-    
-        }
-
-
-
-    
+        selectItem.addEventListener('change', function () {
+            const label = this.options[this.selectedIndex].text;
+            const li = document.createElement('li');
+            li.textContent = label;
+            shopList.appendChild(li);
+        });
     </script>
 
+</body>
 
-    </body>
 </html>
