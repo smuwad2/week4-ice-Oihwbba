@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Event Handling</title>
-   
+    <title>Event Handling</title>
     <style>
-
         #square {
             width: 150px;
             height: 150px;
@@ -24,29 +22,20 @@
     </style>
 </head>
 <body>
+    <div id="circle" onmouseover="mOver(this)" onmouseout="mOut(this)">
+        Mouse Over Me
+    </div>
+    
+    <script>
+        function mOver(obj) {
+            obj.id = "square";      // changes to square
+            obj.style.paddingTop = "20px";
+        }
         
-        <div id="circle" onmouseover="mOver()" onmouseout="mOut(this)" >
-            Mouse Over Me
-        </div>
-        
-        <script>
-            function mOver() {
-
-                // document.getElementById('circle').id='square'
-                // document.getElementById('circle').style.backgroundColor = 'red'
-                document.getElementById('circle').style.borderRadius = '0'
-                // obj.id = "square";
-                // obj.style.paddingTop = "20px";
-            }
-            
-            function mOut(obj) {
-                // obj.getAttributeNode("id").value = "circle";
-                // obj.id = "circle";
-                // obj.style.paddingTop = "60px";
-                // document.getElementById('circle').style.backgroundColor = 'black';
-                // document.getElementById('circle').style.borderRadius = '50%';
-            }
-        </script>
-                
+        function mOut(obj) {
+            obj.id = "circle";      // changes back to circle
+            obj.style.paddingTop = "60px";
+        }
+    </script>
 </body>
 </html>
